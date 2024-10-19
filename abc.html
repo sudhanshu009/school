@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiple Dropdowns in Toggle Navigation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+  /* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: none; /* Hidden on larger screens */
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  list-style: none;
+  min-width: 150px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  margin-top: 5px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.dropdown-menu a {
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px solid #ddd;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown-menu li:last-child a {
+  border-bottom: none;
+}
+
+.show {
+  display: block; /* Display dropdown when active */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #47eb15;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    text-align: right;
+    padding: 20px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .toggle-btn {
+    display: block;
+  }
+}
+.active, .navbar ul li:hover {
+  background: #2bab0d;
+  border-radius: 3px;
+}
+.dropdown-menu{
+  display: none;
+}
+.navbar ul li:hover .dropdown-menu{
+  display: block;
+  position: absolute;
+  background-color: #5cb85c;
+  margin-top: 5px;
+  margin-left: -10px;
+  
+}
+.navbar ul li:hover .dropdown-menu ul{
+  display: block;
+}
+.navbar ul li:hover .dropdown-menu ul li{
+  /* width: 150px; */
+  padding: 10px;
+  border-bottom: 1px double #FFFFFF;
+  background: transparent;
+  border-radius: 0;
+  text-align: left;
+}
+.navbar ul li:hover .dropdown-menu ul li:last-child{
+  border-bottom: none;
+}
+.navbar ul li:hover .dropdown-menu ul li a:hover{
+  color: #EF4765;
+}
+
+
+.name{
+  position: absolute;
+  margin-left: 180px;
+  top: 90px;
+  /* color: rgb(14, 13, 13); */
+}
+.name2{
+    /* font-size: 1em; */
+    letter-spacing: 3px;
+    word-spacing: 5px;
+    color: #000;
+    /* font-size:30px; */
+    font-stretch: expanded;
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
+    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    /* font-family: 'Courier New', Courier, monospace; */
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  
+}
+
+
+
+/* .menu-bar{
+    background-color: #5cb85c;
+    text-align: center;
+    margin-top: 15px;
+  }
+  .menu-bar ul{
+    display: inline-flex;
+    list-style: none;
+    color: white;
+  }
+  .menu-bar ul li{
+    margin: 5px;
+    padding:10px;
+    font-size: 15px;
+  }
+  .menu-bar ul li a{
+    text-decoration: none;
+    color: #FFFFFF;
+  }
+  .active, .menu-bar ul li:hover {
+    background: #2bab0d;
+    border-radius: 3px;
+  }
+  .sub-menu-1{
+    display: none;
+  }
+  .menu-bar ul li:hover .sub-menu-1{
+    display: block;
+    position: absolute;
+    background-color: #5cb85c;
+    margin-top: 10px;
+    margin-left: -10px;
+    
+  }
+  .menu-bar ul li:hover .sub-menu-1 ul{
+    display: block;
+  }
+  .menu-bar ul li:hover .sub-menu-1 ul li{
+    padding: 10px;
+    border-bottom: 1px double #FFFFFF;
+    background: transparent;
+    border-radius: 0;
+    text-align: left;
+  }
+  .menu-bar ul li:hover .sub-menu-1 ul li:last-child{
+    border-bottom: none;
+  }
+  .menu-bar ul li:hover .sub-menu-1 ul li a:hover{
+    color: #EF4765;
+  }
+
+   */
+   
+
+
+</style>
+<body>
+
+
+  <div class="img-logo">
+    <img src="u logo.png" alt="logo" style="width:110px;height: 110px;">
+    <div class="est"> EST: 2007</div>
+</div>
+    <!--name and address-->
+
+    <div class="name">
+      <h2><a class=" name2" href="index.html"style="text-decoration: none;color:black;">RAM JANKI INTER HIGH SCHOOL</a></h2>
+      <p class=" address">HAWASPUR, MAIN ROAD, PATORI, 840504</p>
+  </div>
+
+  <nav class="navbar">
+    <div class="logo">MySite</div>
+    <button class="toggle-btn" id="toggleBtn">☰</button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#">Home</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle">Services ▼</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Web Design</a></li>
+          <li><a href="#">Development</a></li>
+          <li><a href="#">SEO</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle">Products ▼</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Product A</a></li>
+          <li><a href="#">Product B</a></li>
+          <li><a href="#">Product C</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle">Products2 ▼</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Product A</a></li>
+          <li><a href="#">Product B</a></li>
+          <li><a href="#">Product C</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- <div class="menu-bar">
+    <ul>
+      <li class="active"><a href="index.html">Home</a></li>
+      <li><a href="#">ACADEMIC ▼</a>
+        <div class="sub-menu-1">
+          <ul>
+            <li><a href="#">Evaluation System</a></li>
+            <li><a href="#">Subject Combination</a></li>
+            <li><a href="#">WorkShop</a></li>
+            <li><a href="#">List of Books</a></li>
+            <li><a href="#">CURRICULARS</a></li>
+            <li><a href="#">School Uniform</a></li>
+          </ul>
+        </div>
+      </li>
+      <li><a href="#">ADMISSION</a>
+      </li>
+      <li><a href="#">FACILITIES ▼</a>
+        <div class="sub-menu-1">
+          <ul class="nav-links" id="navLinks">
+            <li><a href="#">Transport</a></li>
+            <li><a href="#">Library</a></li>
+            <li><a href="#">Computer Pab</a></li>
+            <li><a href="#">Audio Visual</a></li>
+            <li><a href="#">TLM Toy</a></li>
+          </ul>
+        </div>
+      </li>
+      
+      <li><a href="#">PAYMENT</a>
+        <div class="sub-menu-1">
+        </div>
+      </li>
+      
+      <li><a href="#">RESULT</a></li>
+      <li><a href="#">CURRICULARS ▼</a>
+        <div class="sub-menu-1">
+          <ul class="nav-links" id="navLinks">
+            <li><a href="#">Competition</a></li>
+            <li><a href="#">Celebration</a></li>
+          </ul>
+        </div>
+      </li>
+      <li><a href="#">GALLERY</a></li>
+      <li><a href="#">ACHIEVEMENTS ▼</a>
+        <div class="sub-menu-1">
+          <ul>
+            <li><a href="#">School Award</a></li>
+            <li><a href="#">Principal Award</a></li>
+          </ul>
+        </div>
+      </li>
+      
+    </ul> 
+  </div> -->
+
+
+  <script>
+    // JavaScript to handle the toggle menu
+    const toggleBtn = document.getElementById('toggleBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    toggleBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Handle multiple dropdowns
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+    dropdownToggles.forEach((toggle) => {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent default link behavior
+        const dropdownMenu = toggle.nextElementSibling;
+        dropdownMenu.classList.toggle('show');
+      });
+    });
+  </script>
+
+</body>
+</html>

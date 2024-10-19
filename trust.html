@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAM JANKI INTER HIGH SCHOOL</title>
+    <link rel="icon" type="image/png" href="u logo.png" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+   
+</style>
+<body>
+    <div class="menu-bar-1">
+        <ul>
+            <li><a href="trust.html"  target="_blank">Charitable Trust</a></li>
+            <li><a href="team.html"  target="_blank">Our Team</a></li>
+            <li><a href="message.html" target="_blank">Message</a></li>
+            <li><a href="aboutUs.html" target="_blank" >About Us</a></li>
+            <li><a href="contactUs.html" target="_blank">Contact Us</a></li>
+            
+          
+          
+        </ul> 
+    </div>
+<div class="header">
+    <div class="name-logo">
+        <img class="logo" src="u logo.png" alt="logo" style="width:100px;height: 100px;">
+        <div class="est"> EST: 2007</div>
+    </div>
+    <div class="name-logo">
+        <h1>RAM JANKI INTER HIGH SCHOOL</h1>
+        <p class=" address">HAWASPUR, MAIN ROAD, PATORI, 840504</p>
+    </div>
+</div>
+
+<nav class="navbar">
+    <div class="logo"></div>
+    <button class="toggle-btn" id="toggleBtn">☰</button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#" class="dropdown-toggle">HOME</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle">ACADEMIC ▼</a>
+        <ul class="dropdown-menu">
+            <li><a href="#">Evaluation System</a></li>
+            <li><a href="#">Subject Combination</a></li>
+            <li><a href="#">WorkShop</a></li>
+            <li><a href="#">List of Books</a></li>
+            <!-- <li><a href="#">CURRICULARS</a></li> -->
+            <li><a href="#">School Uniform</a></li>
+        </ul>
+      </li>
+      <li><a href="#" class="dropdown-toggle">ADMISSION</a>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle">FACILITIES ▼</a>
+        <ul class="dropdown-menu">
+            <li><a href="#">Transport</a></li>
+            <li><a href="#">Library</a></li>
+            <li><a href="#">Computer Pab</a></li>
+            <li><a href="#">Audio Visual</a></li>
+            <li><a href="#">TLM Toy</a></li>
+        </ul>
+      </li>
+      <li><a href="#" class="dropdown-toggle">PAYMENTS</a>
+        <li><a href="#" class="dropdown-toggle">RESULT</a>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle">CURRICULARS ▼</a>
+        <ul class="dropdown-menu">
+            <li><a href="#">Competition</a></li>
+            <li><a href="#">Celebration</a></li>
+        </ul>
+      </li>
+      <li><a href="#">GALLERY</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle">ACHIEVEMENTS ▼</a>
+        <ul class="dropdown-menu">
+            <li><a href="#">School Award</a></li>
+            <li><a href="#">Principal Award</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <h2> Hour Trust</h2>
+  <script>
+    // JavaScript to handle the toggle menu
+    const toggleBtn = document.getElementById('toggleBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    toggleBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Handle multiple dropdowns
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+    dropdownToggles.forEach((toggle) => {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent default link behavior
+        const dropdownMenu = toggle.nextElementSibling;
+        dropdownMenu.classList.toggle('show');
+      });
+    });
+  </script>
+
+<a href="abc.html">GALLERY</a></li>
+</body>
+</html>

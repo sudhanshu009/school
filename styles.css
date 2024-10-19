@@ -1,0 +1,538 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  .menu-bar-1{
+    background-color: #5cb85c;
+    text-align: right;
+    /* margin-top: 60px; */
+    
+  }
+  .menu-bar-1 ul{
+    display: inline-flex;
+    list-style: none;
+    color: white;
+  }
+  .menu-bar-1 ul li{
+    /* width: 120px;  */
+    margin: 10px;
+    padding:5px;
+    
+  }
+  .menu-bar-1 ul li a{
+    text-decoration: none;
+    color: #FFFFFF;
+  }
+  .active, .menu-bar-1 ul li:hover {
+    background: #2bab0d;
+    border-radius: 3px;
+  }
+  .header{
+    margin-left: 20px;
+    padding: 10px;
+    display: flex;
+    width: auto;
+    height: auto;
+  }
+  .name-logo{
+    width: auto;
+    height: 100px;
+    /* margin: 10px; */
+  }
+  .est{
+    text-align: center;
+  }
+  h1{
+    font-family: OpenSans-Light;
+    font-size:4.5vw;
+    margin-top: 10px;
+    margin-left: 10px;
+
+  }
+  .address{
+    font-size: 2vw;
+    margin-left: 10px;
+  }
+
+
+  /* Navbar Styles */
+.navbar {
+    background-color: #5cb85c;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    align-items: center;
+    padding: 10px 20px;
+  }
+ 
+  
+  .navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* Hidden on larger screens */
+  }
+  
+  /* Navigation Links */
+  .nav-links {
+    background-color: #5cb85c;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  /* Dropdown Menu Styles */
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    list-style: none;
+    min-width: 150px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    border-radius: 5px;
+    z-index: 1;
+  }
+  
+  .dropdown-menu a {
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .dropdown-menu a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown-menu li:last-child a {
+    border-bottom: none;
+  }
+  
+  .show {
+    display: block; /* Display dropdown when active */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      /* background-color: #47eb15; */
+      position: absolute;
+      margin-top: 250px;
+      top: 10px;
+      right: 0;
+      width: 50%;
+      text-align: right;
+      padding: 20px;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .toggle-btn {
+      display: block;
+    }
+  }
+  .active, .navbar ul li:hover {
+    /* background: #2bab0d; */
+    border-radius: 3px;
+  }
+  .dropdown-menu{
+    display: none;
+  }
+  .navbar ul li:hover .dropdown-menu{
+    display: block;
+    position: absolute;
+    background-color: #5cb85c;
+    margin-top: 1px;
+    margin-left: -10px;
+    
+  }
+  .navbar ul li:hover .dropdown-menu ul{
+    display: block;
+  }
+  .navbar ul li:hover .dropdown-menu ul li{
+    /* width: 150px; */
+    padding: 10px;
+    border-bottom: 1px double #FFFFFF;
+    background: transparent;
+    border-radius: 0;
+    text-align: left;
+  }
+  .navbar ul li:hover .dropdown-menu ul li:last-child{
+    border-bottom: none;
+  }
+  .navbar ul li:hover .dropdown-menu ul li a:hover{
+    color: #EF4765;
+  }
+
+
+
+  /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+/* popup close */
+
+
+
+  /* Admission buttion close */
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+/* text running start */
+
+.scroll-left {
+ height: 50px;	
+ /* width: 500px; */
+ overflow: hidden;
+ position: relative;
+ /* background: rgb(247, 247, 245); */
+ color: rgb(245, 67, 12);
+ /* border: 1px solid orange; */
+}
+.scroll-left p {
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: center;
+ /* Starting position */
+ transform:translateX(100%);
+ /* Apply animation to this element */
+ animation: scroll-left 15s linear infinite;
+}
+/* Move it (define the animation) */
+@keyframes scroll-left {
+ 0%   {
+ transform: translateX(100%); 		
+ }
+ 100% {
+ transform: translateX(-100%); 
+ }
+}
+
+/* text running stop */
+
+
+
+/* slide image start */
+/* * {box-sizing: border-box;} */
+/* body {font-family: Verdana, sans-serif Arial, Helvetica;} */
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 600px;
+  position: relative;
+  margin: auto;
+  margin-top: 5px;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+/* slide image close */
+
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 200px; /* Adjust the height based on your needs */
+  overflow: hidden;
+  
+}
+
+.slides {
+  display: flex;
+  width: 100%; /* Total width: 100% for each image */
+  height: 100%;
+  animation: slide 20s infinite;
+}
+
+.slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0%);
+  }
+  10% {
+    transform: translateX(-50%);
+  }
+  20% {
+    transform: translateX(-100%);
+  }
+  30% {
+    transform: translateX(-150%);
+  }
+  40% {
+    transform: translateX(-200%);
+  }
+  30% {
+    transform: translateX(-150%);
+  }
+  20% {
+    transform: translateX(-100%);
+  }
+  10% {
+    transform: translateX(-50%);
+  }
+  0% {
+    transform: translateX(0%);
+  }
+}
+
+
+
+
+
+/* popup close */
+
+  
+
+  /* @media screen and (max-width: 905px) {
+    h1{
+        font-size:4vw;
+    }
+    .address{
+        font-size: 2vw;
+    }
+  }
+  @media screen and (max-width: 855px) {
+    h1 {
+        font-size:4vw;
+    }
+    .address{
+        font-size: 2vw;
+    }
+  }
+  
+  @media screen and (max-width: 510px) {
+    h1 {
+        font-size:4vw;
+    }
+    .address{
+        font-size: 2vw;
+    }
+  }
+  @media screen and (max-width: 410px) {
+
+    h1 {
+        font-size:4vw;
+    }
+    .address{
+        font-size: 2vw;
+    }
+  } */
+
+  
